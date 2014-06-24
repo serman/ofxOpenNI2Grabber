@@ -171,14 +171,15 @@ bool ofxOpenNI2Grabber::close()
 {
 	ofLogVerbose() << "ofxOpenNI2Grabber::close";
 	isReady = false;
-	stopThread();
-	
+	//stopThread();
+	waitForThread(true);
+    OpenNI::shutdown();
 	if (depthSource.isOn) depthSource.close();
 	if (rgbSource.isOn) rgbSource.close();
 	if (irSource.isOn) irSource.close();
 	deviceController.close();
 	
-	OpenNI::shutdown();
+	
 	return isReady;
 	//
 }

@@ -13,7 +13,9 @@ public:
 	int width;
 	int height;
 	VideoStream videoStream;
-	
+    int nearClipping;
+    int farClipping;
+    
 	ofTexture texture;
 	ofPixels pixels[2];
 	ofPixels* backPixels;
@@ -39,5 +41,6 @@ public:
 	bool doDoubleBuffering;
 	bool isOn;
 	bool doRawDepth;
+    void setDepthClipping(float nearClip=500, float farClip=4000);
 };
 
